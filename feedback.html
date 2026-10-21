@@ -6,15 +6,15 @@
   <title>Зворотній зв’язок — Космопедія</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="feedback-page" id="top">
 <header>
   <a class="brand" href="index.html"><img src="img/logo.svg" alt="Логотип Космопедії" width="48" height="48">
     <span><strong>КОСМОПЕДІЯ</strong><small>Тематична онлайн-енциклопедія про космос</small></span></a>
-  <nav><ul><li><a href="index.html">Головна</a></li><li><a href="planets.html">Розділ про планети</a></li><li><a href="missions.html">Розділ про космічні місії</a></li><li><a href="feedback.html" class="active">Зворотній зв’язок</a></li></ul></nav>
+  <nav aria-label="Основна навігація"><ul><li><a href="index.html">Головна</a></li><li><a href="planets.html">Розділ про планети</a></li><li><a href="missions.html">Розділ про космічні місії</a></li><li><a href="feedback.html" class="active" aria-current="page">Зворотній зв’язок</a></li></ul></nav>
 </header>
 <main class="wide">
   <h1>Зворотній зв’язок</h1>
-  <p>Заповніть форму — ми відповімо протягом одного робочого дня. Поля, позначені зірочкою (*), обов’язкові.</p>
+  <p>Навчальна форма перевіряє введені дані локально у браузері. Дані не надсилаються на сервер. Поля, позначені зірочкою (*), обов’язкові.</p>
   <form action="#" method="post">
     <fieldset>
       <legend>Персональна інформація</legend>
@@ -40,6 +40,7 @@
       <small>Розмір поля обмежено (6 рядків, 50 символів у ширину), максимум — 500 символів.</small></p>
     <p><label class="inl"><input type="checkbox" name="agree" required> Я погоджуюсь на обробку моїх персональних даних *</label></p>
     <p><button type="submit">Надіслати</button> <button type="reset" class="alt">Очистити форму</button></p>
+    <p id="form-status" role="status" aria-live="polite"></p>
   </form>
   <p><a class="btn" href="index.html">← На Головну сторінку</a></p>
 </main>
@@ -47,5 +48,7 @@
   <p><b>Космопедія</b> · 01033, м. Київ, вул. Володимирська, 64/13, ауд. 120 · Тел.: +380 (44) 123-45-67, +380 (50) 123-45-67</p>
   <p><small>© 2026 Космопедія. Навчальний проєкт.</small></p>
 </footer>
+<a class="back-top" href="#top" aria-label="Повернутися нагору">↑</a>
+<script src="js/feedback.js"></script>
 </body>
 </html>

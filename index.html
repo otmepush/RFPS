@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+/* Внутрішня таблиця стилів лише головної сторінки. */
+.home-page #about h1 { letter-spacing: .03em; }
+.home-page .purpose::first-line { font-style: italic; }
+</style>
   <title>Головна — Космопедія</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="home-page" id="top">
 <header>
   <a class="brand" href="index.html"><img src="img/logo.svg" alt="Логотип Космопедії" width="48" height="48">
     <span><strong>КОСМОПЕДІЯ</strong><small>Тематична онлайн-енциклопедія про космос</small></span></a>
-  <nav><ul><li><a href="index.html" class="active">Головна</a></li><li><a href="planets.html">Розділ про планети</a></li><li><a href="missions.html">Розділ про космічні місії</a></li><li><a href="feedback.html">Зворотній зв’язок</a></li></ul></nav>
+  <nav aria-label="Основна навігація"><ul><li><a href="index.html" class="active" aria-current="page">Головна</a></li><li><a href="planets.html">Розділ про планети</a></li><li><a href="missions.html">Розділ про космічні місії</a></li><li><a href="feedback.html">Зворотній зв’язок</a></li></ul></nav>
 </header>
 <div class="layout">
 <main>
@@ -19,7 +24,7 @@
     <h1>Про енциклопедію</h1>
     <p>«Космопедія» — <b>безкоштовна</b> <i>онлайн-енциклопедія</i>, яка <em>просто</em> розповідає про <u>Всесвіт</u> і <span class="hl">створена для кожного, хто любить космос</span>. Матеріали готують українські науковці та популяризатори науки.</p>
     <h2>Мета створення</h2>
-    <p>Зібрати в одному місці перевірені, зрозумілі й цікаві статті про планети та космічні місії, щоб знання про Всесвіт були доступними школярам, студентам і всім небайдужим.</p>
+    <p class="purpose">Зібрати в одному місці перевірені, зрозумілі й цікаві статті про планети та космічні місії, щоб знання про Всесвіт були доступними школярам, студентам і всім небайдужим.</p>
     <h2>Завдання для досягнення мети</h2>
     <ul>
       <li>Описати всі планети Сонячної системи простою мовою.</li>
@@ -35,8 +40,8 @@
     <div class="scroll"><table>
       <caption>Таблиця 1 — Тематика розділів та автори «Космопедії»</caption>
       <thead>
-        <tr><th rowspan="2">№ з/п</th><th rowspan="2">Розділ</th><th colspan="3">Предметна область та автори</th></tr>
-        <tr><th>Тематика</th><th>Автор</th><th>Статей</th></tr>
+        <tr><th rowspan="2" scope="col">№ з/п</th><th rowspan="2" scope="col">Розділ</th><th colspan="3" scope="colgroup">Предметна область та автори</th></tr>
+        <tr><th scope="col">Тематика</th><th scope="col">Автор</th><th scope="col">Статей</th></tr>
       </thead>
       <tbody>
         <tr><td>1</td><td rowspan="4">Планети Сонячної системи</td><td>Внутрішні планети (Меркурій, Венера)</td><td>Коваль О. П.</td><td>2</td></tr>
@@ -53,10 +58,13 @@
   </article>
 </main>
 <aside>
+  <section class="contact-panel" tabindex="0" aria-label="Адреса та контактні телефони">
   <h2>Контакти</h2>
+  <p class="focus-hint">Натисніть на цей блок або перейдіть до нього клавішею Tab.</p>
   <p><b>Адреса:</b> 01033, м. Київ, вул. Володимирська, 64/13, ауд. 120</p>
   <p><b>Телефони:</b><br>+380 (44) 123-45-67<br>+380 (50) 123-45-67</p>
   <p><b>E-mail:</b> info@cosmopedia.ua</p>
+  </section>
   <h2>Корисні посилання</h2>
   <ul>
     <li><a href="https://www.nasa.gov/" target="_blank" rel="noopener">NASA — Національне управління з аеронавтики</a></li>
@@ -70,5 +78,6 @@
   <p><b>Космопедія</b> · 01033, м. Київ, вул. Володимирська, 64/13, ауд. 120 · Тел.: +380 (44) 123-45-67, +380 (50) 123-45-67</p>
   <p><small>© 2026 Космопедія. Навчальний проєкт.</small></p>
 </footer>
+<a class="back-top" href="#top" aria-label="Повернутися нагору">↑</a>
 </body>
 </html>
