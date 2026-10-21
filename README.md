@@ -25,8 +25,9 @@
 Мінімалізм, темно-синя палітра, помаранчевий акцент. Шрифти Arial та Georgia. Кольори задано HEX, rgb(), hsl() і ключовими словами. Є селектори елемента, класу, id, універсальний, атрибутів та псевдокласів; комбінатори пробілу, >, +, ~. Для головної використано relative, absolute, sticky, fixed, float і z-index.
 
 ## Версії у GitHub
-- Лабораторна 1: https://github.com/otmepush/RFPS_Lab1/tree/lab1
-- Лабораторна 2: https://github.com/otmepush/RFPS_Lab1/tree/lab2
+- Лабораторна 1: https://github.com/otmepush/RFPS/tree/lab1
+- Лабораторна 2: https://github.com/otmepush/RFPS/tree/lab2
 - Звіт лабораторної 2: docs/lab2-report.pdf
 
 Гілка lab1 зберігає стан першої роботи. Гілка lab2 продовжує її зі стилізацією CSS. Архів не містить .git або історії репозиторію.
+
