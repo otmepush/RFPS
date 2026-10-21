@@ -39,3 +39,116 @@ legend { padding: 0 8px; font-weight: 700; color: #2d4bb0; }
 footer { background: #0f1a4a; color: #cfd9ff; text-align: center; padding: 14px; margin-top: 24px; font-size: 14px; }
 footer p { margin: 4px 0; }
 @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } }
+/* Лабораторна 2. Варіант 7. Мінімалізм із космічною палітрою.
+   Базові стилі лабораторної 1 уточнено нижче. */
+:root { --navy: #0f1a4a; --accent: #ff9d4d; }
+html { scroll-behavior: smooth; scroll-padding-top: 170px; }
+body { font-family: Arial, sans-serif; }
+h1, h2, h3, .brand strong { font-family: Georgia, serif; }
+header { display: grid; grid-template-columns: minmax(270px,1fr) auto; position: relative; min-height: 112px; padding: 16px 28px; z-index: 20; }
+.brand { display: grid; grid-template-columns: 48px 1fr; gap: 12px; }
+.brand strong { font-size: 23px; }
+.brand small { display: block; max-width: 270px; font-size: 12px; }
+nav ul { display: grid; grid-template-columns: repeat(4,auto); gap: 4px; }
+nav a { padding: 8px 10px; font-size: 13px; }
+/* position: absolute, relative, sticky, fixed на головній сторінці. */
+.home-page header > .brand { position: absolute; top: 0; left: 28px; padding-top: 0; }
+.home-page header > nav { grid-column: 2; }
+.home-page aside { position: sticky; top: 20px; align-self: start; }
+.back-top { position: fixed; right: 18px; bottom: 18px; z-index: 50; padding: 8px 16px; border-radius: 50%; background: var(--navy); color: white; text-decoration: none; box-shadow: 0 4px 16px rgb(15 26 74 / 25%); }
+.layout { grid-template-columns: minmax(0,1fr) 280px; max-width: 1180px; gap: 28px; }
+.layout main { min-width: 0; display: grid; align-content: start; }
+/* Зовнішні відступи 32px більші за внутрішні 20px. */
+.home-page #about { margin: 32px; padding: 20px; max-height: 650px; overflow-y: auto; scrollbar-gutter: stable; }
+#about::after { content: ''; display: block; clear: both; }
+/* Float є частиною обтікання ілюстрації текстом. */
+#about .hero { float: right; width: 43%; margin: 0 0 14px 18px; }
+#about h1 { font-size: 29px; }
+#about h2 { font-size: 20px; }
+#about ul { padding-left: 22px; }
+#authors { transition: transform .35s ease, background-color .35s ease, box-shadow .35s ease, border-color .35s ease; border: 2px solid transparent; margin-bottom: 22px; }
+#authors:hover { transform: translateY(3%); background-color: hsl(220 100% 97%); box-shadow: 0 10px 24px rgb(15 26 74 / 18%); border-color: #aab6e0; }
+main > article + article { margin-top: 0; }
+/* Градієнт з'являється через 3 секунди безперервного фокусу. */
+.contact-panel { position: relative; isolation: isolate; border-radius: 10px; padding: 12px; outline-offset: 4px; }
+.contact-panel::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: linear-gradient(135deg, lightgreen, green); opacity: 0; transition: opacity .4s ease 0s; }
+.contact-panel:focus::before { opacity: 1; transition-delay: 3s; }
+.contact-panel:focus { color: #071b0c; }
+.focus-hint { font-size: 12px; color: #44507f; }
+/* Селектори атрибутів і комбінатори. */
+a[href^="https"] { text-underline-offset: 3px; }
+img[src$=".svg"] { object-fit: contain; }
+[tabindex] { cursor: pointer; }
+input[required], select[required], textarea[required] { border-left: 3px solid #2d4bb0; }
+h2 + p { margin-top: 8px; }
+legend ~ p { margin-block: 12px; }
+aside li + li { margin-top: 10px; }
+:focus-visible { outline: 3px solid #bc6500; outline-offset: 4px; }
+::selection { background: #ffe0b6; color: #0f1a4a; }
+/* На сторінках обох розділів шапка залишається зверху. */
+.section-page { padding-top: 116px; }
+.section-page header { position: fixed; top: 0; left: 0; right: 0; z-index: 30; }
+.section-page .wide { display: grid; gap: 8px; }
+.section-page .grid { grid-template-columns: repeat(3,minmax(0,1fr)); align-items: stretch; }
+.section-page .card { display: grid; grid-template-rows: auto auto 1fr auto; border: 6px double darkblue; border-bottom: 3px solid darkblue; border-radius: 10px; background: white; }
+.card .author, .card .author b { font-size: 12px; font-weight: 300; font-style: italic; }
+.card img { filter: sepia(0); }
+.card img:hover { animation: antique .7s ease forwards; }
+@keyframes antique { from { filter: sepia(0); } to { filter: sepia(1); } }
+.section-page a:visited { color: #ffd700; }
+/* Flexbox для контейнерів та елементів сторінки форми. */
+.feedback-page { display: flex; flex-flow: column nowrap; min-height: 100vh; }
+.feedback-page header { display: flex; flex-flow: row wrap; align-content: center; }
+.feedback-page nav ul { display: flex; flex-flow: row wrap; }
+.feedback-page main { display: flex; flex-flow: column nowrap; align-items: stretch; width: calc(100% - 32px); }
+.feedback-page form { display: flex; flex-flow: row wrap; justify-content: space-between; align-items: flex-start; align-content: flex-start; gap: 16px 24px; }
+.feedback-page fieldset { order: 0; flex: 1 1 100%; display: flex; flex-flow: row wrap; gap: 8px 24px; min-width: 0; margin: 0; }
+.feedback-page fieldset > p { flex: 1 1 42%; min-width: 0; }
+.feedback-page form > p { flex: 1 1 42%; margin: 0; min-width: 0; }
+.feedback-page form > p:nth-last-of-type(3), .feedback-page form > p:nth-last-of-type(2) { flex: 1 1 100%; }
+.feedback-page #form-status { order: 1; flex-grow: 1; flex-shrink: 0; flex-basis: 100%; align-self: stretch; color: #164b2f; font-weight: 600; }
+.feedback-page footer { margin-top: auto; }
+.feedback-page .brand { display: flex; }
+textarea { height: 160px; max-width: 560px; }
+input, select, textarea { min-width: 0; }
+.inl { display: inline-block; margin-block: 4px; }
+button { font-family: Arial, sans-serif; font-size: 15px; font-weight: 600; }
+button:hover { background: #0f1a4a; color: white; }
+@media (max-width: 1050px) {
+ header { grid-template-columns: 1fr; gap: 16px; }
+ nav ul { grid-template-columns: repeat(4,1fr); }
+ .home-page header { padding-top: 76px; }
+ .home-page header > nav { grid-column: 1; }
+ .section-page { padding-top: 164px; }
+ .section-page .grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 800px) {
+ .layout { grid-template-columns: minmax(0,1fr); gap: 20px; }
+ .home-page aside { position: relative; top: 0; }
+ .home-page #about { margin: 32px 24px; padding: 20px; }
+ .section-page header { padding: 12px 16px; }
+ nav ul { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ nav a { text-align: center; }
+ .section-page { padding-top: 204px; }
+ html { scroll-padding-top: 210px; }
+ .feedback-page fieldset > p, .feedback-page form > p { flex-basis: 100%; }
+}
+@media (max-width: 520px) {
+ .brand strong { font-size: 20px; }
+ .brand small { max-width: 230px; }
+ .home-page header > .brand { left: 16px; }
+ header { padding-inline: 16px; }
+ #about .hero { float: none; width: 100%; margin: 0 0 14px; }
+ .home-page #about { margin: 32px 24px; }
+ .section-page .grid { grid-template-columns: minmax(0,1fr); }
+ main.wide { padding: 16px; }
+ .scroll table { min-width: 590px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ #authors { transition: none; }
+ .card img:hover { animation-duration: .01s; }
+}
+/* Обмеження автоматичної мінімальної ширини Grid усередині таблиці. */
+.layout main > article, .scroll { min-width: 0; }
+.home-page #about { max-height: 460px; }
